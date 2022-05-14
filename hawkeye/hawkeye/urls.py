@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from vide2Text.views import homePage
+from vide2Text.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', homePage)
+    path('', homePage),
+    path('video/', video)
 ]
