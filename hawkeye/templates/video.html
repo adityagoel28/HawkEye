@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vid2Text | An Easy to Access Video Transcription web app</title>
+    <link rel='stylesheet' href='../static/css/style.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body class='video-body'>
+   <header  class=' video-header py-2 '>
+       <h1 class='fs-1 text-left mx-4'> VID2TEXT  </h1>
+    </header>
+
+   <section class='container py-2'>
+       <div class="video-section">
+           <div class="video-image text-center">
+               <img src="../static/images/video-img.png" alt="Videos upload">
+           </div>
+
+           <!-- Video Upload -->
+           <div id="upload-container">
+            <div id="upload-border">
+              <nobr>
+                <input type="text" id="upload-name" disabled="true" />
+                <button id="upload-button">upload</button>
+              </nobr>
+            </div>
+            <input type="file" id="hidden-upload" style="display:none"/>
+          </div>
+
+          <div class="transcript border-top border-info mx-4 pt-3 my-4">
+              <div class="search-bar">
+                    <div class="search">
+                       <input type="text" class="searchTerm" placeholder="Search for Keywords in Transcript">
+                       <button type="submit" class="searchButton">
+                         <i class="fa fa-search"></i>
+                      </button>
+                    </div>
+
+              </div>
+
+              <div >
+                 
+
+              </div>
+              <textarea name="transcript-text" id="" cols="30" rows="10" class="transcript-text container bg-light my-3">
+                Demo Transcript Demo transcript Demo transcript
+              </textarea>
+
+          </div>
+        
+          
+
+       </div>
+
+   </section>
+
+   
+   <script>
+    //adds event listener to the file uploader button
+document.querySelector("#upload-button").addEventListener("click", () => {
+//clicks on the file input
+document.querySelector("#hidden-upload").click();
+});
+
+//adds event listener on the hidden file input to listen for any changes
+document.querySelector("#hidden-upload").addEventListener("change", (event) => {
+//gets the file name
+document.querySelector("#upload-name").value = event.target.files[0].name;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+body{
+    overflow-x: hidden;
+    color:white !important;
+    font-family: 'Roboto', sans-serif !important;
+    background-color: #3d0598 !important;
+    height:100vh;
+   
+}
+a{
+      text-decoration: none;
+}
+li{
+     list-style: none;
+}
+
+header h1{
+    font-family: 'Black And White Picture', sans-serif !important;
+}
+
+.about-image img{
+    width:70%;
+}
+.about-desc button a{
+    text-decoration: none;
+    color:black;
+}
+
+/* Upload Video */
+.video-body{
+    background-color: white !important;
+    color:black !important;
+}
+.video-header{
+    background-color: #3d0598 ;
+    color:white !important;
+}
+.video-image img{
+    width:50%;
+}
+
+#upload-container{
+    text-align:center;
+  }
+  #upload-border{
+    height:50px;
+    border: 2px solid #3d0598;
+    border-radius: 20px;
+    display:inline-block;
+    padding-left:7px;
+    margin:20px 0;
+  }
+  
+  #upload-name{
+    height:70%;
+    border:none;
+  }
+  
+  #upload-button{
+    height:100%;
+    padding:0 20px;
+    border:none;
+    background:#3d0598;
+    border-radius: 20px;
+    color:white;
+    cursor:pointer;
+  }
+  
+  #upload-name:focus, #upload-button:focus{
+    outline:none;
+  }
+
+  .search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 50%;
+    border: 2px solid #3d0598;
+    border-right: none;
+    padding: 10px;
+    border-radius: 10px 0 0 10px;
+    outline: none;
+    color: #9DBFAF;
+    
+  }
+  
+  .searchTerm:focus{
+    color: #00B4CC;
+  }
+  
+  .searchButton {
+    /* width: 40px;
+    height: 36px; */
+    padding:10px;
+    border: 1px solid #3d0598;
+    background: #3d0598;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .transcript-text{
+      height: 500px;
+      border-radius: 20px;
+      padding:10px;
+      
+  }
+ 
