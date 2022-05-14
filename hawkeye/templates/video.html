@@ -23,10 +23,16 @@
            <!-- Video Upload -->
            <div id="upload-container">
             <div id="upload-border">
-              <nobr>
+              <!-- <nobr>
                 <input type="text" id="upload-name" disabled="true" />
                 <button id="upload-button">upload</button>
-              </nobr>
+              </nobr> -->
+              <form action="/upload/" method="post" enctype ="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="video" required>
+                <button type="submit">Upload</button>
+              </form>
+
             </div>
             <input type="file" id="hidden-upload" style="display:none"/>
           </div>
@@ -43,7 +49,6 @@
               </div>
 
               <div >
-                 
 
               </div>
               <textarea name="transcript-text" id="" cols="30" rows="10" class="transcript-text container bg-light my-3">
@@ -57,7 +62,6 @@
        </div>
 
    </section>
-
    
    <script>
     //adds event listener to the file uploader button

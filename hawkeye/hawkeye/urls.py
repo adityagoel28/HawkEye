@@ -21,5 +21,6 @@ from vide2Text.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homePage),
-    path('video/', video)
+    path('video/', video),
+    path('upload/', upload),
 ]
