@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from vid2text.models import videoUploader
 import requests
+import time
 
 # Create your views here.
 
@@ -13,14 +14,9 @@ def video(request):
 
 def upload(request):
     videoUpload = request.FILES['video']
-    # videoUploader(video = videoUpload).save()
-    print(videoUpload)
-    # print(videoUpload.url)
     file_obj = videoUploader.objects.create(video=videoUpload)
     file_path = '/media/'+ str(file_obj.video)
-    print(file_path)
     file_path = './' + file_path
-    print(file_path)
 
     filename = file_path
     def read_file(filename, chunk_size=5242880):
@@ -45,6 +41,17 @@ def upload(request):
     }
     response = requests.post(endpoint, json=json, headers=headers)
     print(response.json())
+    print(response.json()['id'])
+    time.sleep(200)
 
-    print('uploaded')
+    id = str(response.json()['id'])
+    endpoint = "https://api.assemblyai.com/v2/transcript/"+id
+    headers = {
+        "authorization": "879ba2458d7c47debbc7189214746348",
+    }
+    response = requests.get(endpoint, headers=headers)
+    # print(response.json())
+    print()
+    print(response.json()['text'])
+    text = response.json()['text']
     return redirect(video)
