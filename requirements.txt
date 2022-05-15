@@ -7,3 +7,4 @@ python-dotenv~=0.20.0
 moviepy
 gunicorn
 django_heroku
+python-decouple
