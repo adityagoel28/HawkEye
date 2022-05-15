@@ -30,7 +30,6 @@ def upload(request):
     headers = {'authorization': "879ba2458d7c47debbc7189214746348"}
     response = requests.post('https://api.assemblyai.com/v2/upload', headers=headers, data=read_file(filename))
 
-    print(response.json()['upload_url'])
     url = response.json()['upload_url']
 
     endpoint = "https://api.assemblyai.com/v2/transcript"
@@ -40,7 +39,7 @@ def upload(request):
         "content-type": "application/json"
     }
     response = requests.post(endpoint, json=json, headers=headers)
-    print(response.json())
+    # print(response.json())
     print(response.json()['id'])
     time.sleep(200)
 
@@ -50,8 +49,10 @@ def upload(request):
         "authorization": "879ba2458d7c47debbc7189214746348",
     }
     response = requests.get(endpoint, headers=headers)
-    # print(response.json())
     print()
     print(response.json()['text'])
     text = response.json()['text']
+    request.session['text'] = text
     return redirect(video)
+    # context = {'text': text}
+    # return render(request, 'vid2text/video.html', context)
