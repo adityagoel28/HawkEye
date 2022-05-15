@@ -117,4 +117,9 @@ header h1{
       padding:10px;
       
   }
+
+  .highlight{
+    color:red;
+    font-weight:bold;
+  }
  
