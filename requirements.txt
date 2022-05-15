@@ -1,5 +1,9 @@
 Django~=4.0.4
 pillow
+whitenoise
+psycopg2
 requests~=2.27.1
 python-dotenv~=0.20.0
 moviepy
+gunicorn
+django_heroku
