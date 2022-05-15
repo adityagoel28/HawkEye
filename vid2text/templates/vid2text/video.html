@@ -37,7 +37,7 @@
           </div>
 
           <div class="transcript border-top border-info mx-4 pt-3 my-4">
-              <div class="search-bar">
+              <div class="search-bar text-center">
                     <div class="search">
                        {% comment %} <input type="text" class="searchTerm" placeholder="Search for Keywords in Transcript">
                        <button type="submit" class="searchButton">
@@ -45,19 +45,19 @@
                       </button> {% endcomment %}
                       <form action="/search/" method="post">
                         {% csrf_token %}
-                        <input type="text" name="query" class="searchTerm" placeholder="Search for Keywords in Transcript" required>
+                        <input type="text" name="query" class="searchTerm" placeholder="Search and Highlight Keywords from your transcript " required>
                         <button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
                       </form>
                     </div>
 
               </div>
 
-              <div >
-
-              </div>
+              <div class='my-3' >
               {% comment %} <textarea name="transcript-text" id="" cols="30" rows="10" class="transcript-text container bg-light my-3"> {% endcomment %}
-                <br>
-                <div style="justify-content: space-between; text-align: justify;">{{request.session.text}}</div>
+                <h3>
+                  Transcript Notes ...
+                </h3>
+                <div class='transcript-text' style=" justify-content: space-between; text-align: justify;"> {{request.session.text}}</div>
               {% comment %} </textarea> {% endcomment %}
 
           </div>
