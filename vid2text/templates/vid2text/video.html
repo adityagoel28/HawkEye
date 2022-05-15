@@ -9,7 +9,8 @@
     <link rel='stylesheet' href='../../../static/css/style.css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-</head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  </head>
 <body class='video-body'>
    <header  class=' video-header py-2 '>
        <h1 class='fs-1 text-left mx-4'> VID2TEXT  </h1>
@@ -28,7 +29,7 @@
               <form action="/upload/" method="post" enctype ="multipart/form-data" >
                 {% csrf_token %}
                 <input type="file" name="video" id='upload-border' required>
-                <button id='upload-button' type="submit">Upload</button>
+                <button id='upload-button' onclick="showLoaderOnClick()" type="submit">Upload</button>
               </form>
 
             </div>
@@ -67,7 +68,13 @@
 
    </section>
    
-
+<script>
+  function showLoaderOnClick() {
+    showLoader();
+}
+function showLoader(){
+    $('body').append('<div class="preloader"><div class="preloader-container"><div class="preloader-content"><div class="preloader-box"></div><div class="preloader-box-shadow"></div><div class="preloader-text"><div>Estimated Processing Time: 40% of the duration of the video</div> Loading<div class="preloader-text-dots"><span>.</span>&nbsp;<span>.</span>&nbsp;<span>.</span></div></div></div><div class="logo"></div></div></div>');
+}
 </script>
 </body>
 </html>
