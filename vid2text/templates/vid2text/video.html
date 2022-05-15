@@ -18,23 +18,20 @@
        <div class="video-section">
            <div class="video-image text-center">
                <img src="../../../static/images/video-img.png" alt="Videos upload">
+               <h2> Upload your Files in one Step</h2>
            </div>
 
            <!-- Video Upload -->
            <div id="upload-container">
-            <div id="upload-border">
-              <!-- <nobr>
-                <input type="text" id="upload-name" disabled="true" />
-                <button id="upload-button">upload</button>
-              </nobr> -->
-              <form action="/upload/" method="post" enctype ="multipart/form-data">
+            <div id="flex">
+              <form action="/upload/" method="post" enctype ="multipart/form-data" >
                 {% csrf_token %}
-                <input type="file" name="video" required>
-                <button type="submit">Upload</button>
+                <input type="file" name="video" id='upload-border' required>
+                <button id='upload-button' type="submit">Upload</button>
               </form>
 
             </div>
-            <input type="file" id="hidden-upload" style="display:none"/>
+
           </div>
 
           <div class="transcript border-top border-info mx-4 pt-3 my-4">
@@ -63,18 +60,7 @@
 
    </section>
    
-   <script>
-    //adds event listener to the file uploader button
-document.querySelector("#upload-button").addEventListener("click", () => {
-//clicks on the file input
-document.querySelector("#hidden-upload").click();
-});
 
-//adds event listener on the hidden file input to listen for any changes
-document.querySelector("#hidden-upload").addEventListener("change", (event) => {
-//gets the file name
-document.querySelector("#upload-name").value = event.target.files[0].name;
-});
 </script>
 </body>
 </html>
