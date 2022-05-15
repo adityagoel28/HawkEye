@@ -3,6 +3,8 @@ from vid2text.models import videoUploader
 import requests
 import time
 
+from moviepy.editor import VideoFileClip
+
 # Create your views here.
 
 def home(request):
@@ -19,6 +21,9 @@ def upload(request):
     file_path = './' + file_path
 
     filename = file_path
+    videoD = VideoFileClip(filename)
+    # print(videoD.duration)  # this will return the length of the video in seconds
+    sleepTime = videoD.duration * 0.4
     def read_file(filename, chunk_size=5242880):
         with open(filename, 'rb') as _file:
             while True:
@@ -41,7 +46,7 @@ def upload(request):
     response = requests.post(endpoint, json=json, headers=headers)
     # print(response.json())
     print(response.json()['id'])
-    time.sleep(200)
+    time.sleep(sleepTime)
 
     id = str(response.json()['id'])
     endpoint = "https://api.assemblyai.com/v2/transcript/"+id
@@ -53,6 +58,6 @@ def upload(request):
     print(response.json()['text'])
     text = response.json()['text']
     request.session['text'] = text
-    return redirect(video)
-    # context = {'text': text}
-    # return render(request, 'vid2text/video.html', context)
+    # return redirect(video)
+    context = {'text': text}
+    return render(request, 'vid2text/video.html', context)
