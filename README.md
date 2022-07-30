@@ -1,4 +1,5 @@
 # Team HawkEye
+## Winner of Best Use of AssemblyAI API category prize 🎉
 
 <center> <img src='Logo.png' alt="Project's logo"> </center>
 
